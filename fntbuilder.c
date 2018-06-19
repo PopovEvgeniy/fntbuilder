@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,14 +8,14 @@ void show_end_message();
 void show_intro();
 void show_start_message();
 void command_line_help();
-void go_offset(FILE *file, unsigned long int offset);
+void go_offset(FILE *file,const unsigned long int offset);
 unsigned long int get_file_size(FILE *file);
-FILE *open_input_file(char *name);
-FILE *create_output_file(char *name);
-void data_dump(FILE *input, FILE *output, unsigned long int length);
+FILE *open_input_file(const char *name);
+FILE *create_output_file(const char *name);
+void data_dump(FILE *input,FILE *output,const size_t length);
 void write_head(FNT head,FILE *output);
 FNT prepare_head();
-void work(char *pcx_name,char *text_file,char *fnt_file);
+void work(const char *pcx_name,const char *text_file,const char *fnt_file);
 
 int main(int argc, char *argv[])
 {
@@ -42,8 +43,8 @@ void show_intro()
 {
  puts(" ");
  puts("FNT BUILDER");
- puts("Version 2.0.2");
- puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2016 year");
+ puts("Version 2.0.5");
+ puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2018 year");
  puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
 }
 
@@ -59,7 +60,7 @@ void command_line_help()
  puts("You must give 3 command line arguments: graphic file, text file, font file");
 }
 
-void go_offset(FILE *file, unsigned long int offset)
+void go_offset(FILE *file,const unsigned long int offset)
 {
  fseek(file,offset,SEEK_SET);
 }
@@ -73,7 +74,7 @@ unsigned long int get_file_size(FILE *file)
  return length;
 }
 
-FILE *open_input_file(char *name)
+FILE *open_input_file(const char *name)
 {
  FILE *file;
  file=fopen(name,"rb");
@@ -86,7 +87,7 @@ FILE *open_input_file(char *name)
  return file;
 }
 
-FILE *create_output_file(char *name)
+FILE *create_output_file(const char *name)
 {
  FILE *file;
  file=fopen(name,"wb");
@@ -99,15 +100,15 @@ FILE *create_output_file(char *name)
  return file;
 }
 
-void data_dump(FILE *input, FILE *output, unsigned long int length)
+void data_dump(FILE *input,FILE *output,const size_t length)
 {
  unsigned char single_byte;
- unsigned long int index;
+ size_t index;
  unsigned char *buffer=NULL;
- buffer=(unsigned char*)calloc(length,1);
+ buffer=(unsigned char*)calloc(length,sizeof(unsigned char));
  if (buffer==NULL)
  {
-  for(index=0;index<length;index++)
+  for(index=0;index<length;++index)
   {
    fread(&single_byte,1,1,input);
    fwrite(&single_byte,1,1,output);
@@ -131,20 +132,14 @@ void write_head(FNT head,FILE *output)
 FNT prepare_head()
 {
  FNT fnt_head;
- strcpy(fnt_head.signature,"ElecbyteFnt");
- fnt_head.verhi=0;
- fnt_head.verhi2=1;
- fnt_head.verlo=0;
- fnt_head.verlo2=0;
- fnt_head.pcx_offset=sizeof(FNT);
- fnt_head.pcx_size=0;
- fnt_head.text_offset=0;
- fnt_head.text_size=0;
- strcpy(fnt_head.comment,"This font is created by FONT BULDER    ");
+ memset(&fnt_head,0,sizeof(FNT));
+ strncpy(fnt_head.signature,"ElecbyteFnt",12);
+ strncpy(fnt_head.comment,"This font is created by FONT BULDER    ",40);
+ fnt_head.pcx_offset=(unsigned long int)sizeof(FNT);
  return fnt_head;
 }
 
-void work(char *pcx_name,char *text_file,char *fnt_file)
+void work(const char *pcx_name,const char *text_file,const char *fnt_file)
 {
  FILE *input;
  FILE *output;
@@ -160,10 +155,10 @@ void work(char *pcx_name,char *text_file,char *fnt_file)
  output=create_output_file(fnt_file);
  write_head(head,output);
  input=open_input_file(pcx_name);
- data_dump(input,output,head.pcx_size);
+ data_dump(input,output,(size_t)head.pcx_size);
  fclose(input);
  input=open_input_file(text_file);
- data_dump(input,output,head.text_size);
+ data_dump(input,output,(size_t)head.text_size);
  fclose(input);
  fclose(output);
 }
