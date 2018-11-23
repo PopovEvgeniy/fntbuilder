@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.0.5
+                              Version 2.0.5.1
 
 System requirement
 
@@ -36,8 +36,8 @@ Follow this steps:
 1.Extract content of source code archive.
 2.Open terminal and go to source code directory.
 3.
-Run for install: make install
-Run for uninstall: make uninstall
+Run as root for install: make install
+Run as root for uninstall: make uninstall
 
 Version history
 
@@ -48,3 +48,4 @@ Version history
 2.0.1 - 2.0.2 - Small changes in source code.
 2.0.2.0.1 – Documentation was updated.
 2.0.3 - 2.0.5 - Small changes.
+2.0.5.1 - Makefile was updated.
