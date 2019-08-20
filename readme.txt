@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.0.5.1
+                              Version 2.0.6
 
 System requirement
 
@@ -16,7 +16,8 @@ This program takes 3 command line arguments: graphic file, text file, font file.
 Exit codes
 
 0 - Operation successfully complete.
-1 - File operation error. 
+1 - Can't open input file.
+2 - Can't create output file.
 
 License
 
@@ -49,3 +50,4 @@ Version history
 2.0.2.0.1 – Documentation was updated.
 2.0.3 - 2.0.5 - Small changes.
 2.0.5.1 - Makefile was updated.
+2.0.6 - Small changes.
