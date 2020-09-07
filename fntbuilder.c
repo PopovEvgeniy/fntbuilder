@@ -14,7 +14,7 @@ FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 void data_dump(FILE *input,FILE *output,const size_t length);
 void fast_data_dump(FILE *input,FILE *output,const size_t length);
-void write_head(FNT head,FILE *output);
+void write_head(FNT *head,FILE *output);
 FNT prepare_head();
 void work(const char *pcx_name,const char *text_file,const char *fnt_file);
 
@@ -44,7 +44,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.0.7");
+ puts("Version 2.0.8");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2020 years");
  puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
 }
@@ -131,9 +131,9 @@ void fast_data_dump(FILE *input,FILE *output,const size_t length)
 
 }
 
-void write_head(FNT head,FILE *output)
+void write_head(FNT *head,FILE *output)
 {
- fwrite(&head,sizeof(FNT),1,output);
+ fwrite(head,sizeof(FNT),1,output);
 }
 
 FNT prepare_head()
@@ -160,7 +160,7 @@ void work(const char *pcx_name,const char *text_file,const char *fnt_file)
  head.text_size=get_file_size(input);
  fclose(input);
  output=create_output_file(fnt_file);
- write_head(head,output);
+ write_head(&head,output);
  input=open_input_file(pcx_name);
  data_dump(input,output,(size_t)head.pcx_size);
  fclose(input);
