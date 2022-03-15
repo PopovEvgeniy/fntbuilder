@@ -8,13 +8,12 @@ void show_end_message();
 void show_intro();
 void show_start_message();
 void command_line_help();
-void go_offset(FILE *file,const unsigned long int offset);
 unsigned long int get_file_size(FILE *file);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 void data_dump(FILE *input,FILE *output,const size_t length);
 void fast_data_dump(FILE *input,FILE *output,const size_t length);
-void write_head(FNT *head,FILE *output);
+void write_head(const FNT *head,FILE *output);
 FNT prepare_head();
 void work(const char *pcx_name,const char *text_file,const char *fnt_file);
 
@@ -44,8 +43,8 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.0.8");
- puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2020 years");
+ puts("Version 2.1");
+ puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2022 years");
  puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
 }
 
@@ -59,11 +58,6 @@ void command_line_help()
 {
  putchar('\n');
  puts("You must give 3 command line arguments: graphic file, text file, font file");
-}
-
-void go_offset(FILE *file,const unsigned long int offset)
-{
- fseek(file,offset,SEEK_SET);
 }
 
 unsigned long int get_file_size(FILE *file)
@@ -131,7 +125,7 @@ void fast_data_dump(FILE *input,FILE *output,const size_t length)
 
 }
 
-void write_head(FNT *head,FILE *output)
+void write_head(const FNT *head,FILE *output)
 {
  fwrite(head,sizeof(FNT),1,output);
 }
