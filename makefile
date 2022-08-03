@@ -2,7 +2,7 @@
 	@echo Installation in progress. Please wait
 	@gcc fntbuilder.c -g0 -O0 -o /bin/fntbuilder
 	@chmod ugo+rx /bin/fntbuilder
-	@echo Installation was successfuly complete
+	@echo Installation successfully complete
 uninstall:
 	@rm -f /bin/fntbuilder
-	@echo Uninstallation was successfuly complete
+	@echo Uninstallation successfully complete
