@@ -35,7 +35,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.2");
+ puts("Version 2.2.1");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2022 years");
  puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
 }
@@ -61,8 +61,7 @@ FILE *open_input_file(const char *name)
  target=fopen(name,"rb");
  if (target==NULL)
  {
-  putchar('\n');
-  puts("Can't open input file");
+  show_message("Can't open input file");
   exit(1);
  }
  return target;
@@ -74,8 +73,7 @@ FILE *create_output_file(const char *name)
  target=fopen(name,"wb");
  if (target==NULL)
  {
-  putchar('\n');
-  puts("Can't create ouput file");
+  show_message("Can't create ouput file");
   exit(2);
  }
  return target;
