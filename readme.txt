@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.1
+                              Version 2.2.2
 
 System requirement
 
@@ -42,10 +42,10 @@ Run as root for uninstall: make uninstall
 
 Version history
 
-1.0 — Initial version.
-1.1 — Small changes in source code. Program recompiled under Open Watcom
-1.2 — 1.9 - Small changes in source code.
-2.0 — Source code improved. Linux support added.
+1.0 - Initial version.
+1.1 - Small changes in source code. Program recompiled under Open Watcom.
+1.2 - 1.9 - Small changes in source code.
+2.0 - Source code improved. Linux support added.
 2.0.1 - 2.0.2 - Small changes in source code.
 2.0.2.0.1 – Documentation updated.
 2.0.3 - 2.0.5 - Small changes.
@@ -54,4 +54,4 @@ Version history
 2.0.7 - 2.0.8 - Small bug fixed.
 2.0.9 - 2.1 - Small changes.
 2.1.0.1 - 2.1.0.2 - Makefile updated.
-2.2 - 2.2.1 - Small changes.
+2.2 - 2.2.2 - Small changes.

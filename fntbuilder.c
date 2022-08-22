@@ -5,7 +5,6 @@
 #include "format.h"
 
 void show_intro();
-void show_message(const char *message);
 unsigned long int get_file_size(FILE *file);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
@@ -20,13 +19,13 @@ int main(int argc, char *argv[])
  show_intro();
  if (argc<4)
  {
-  show_message("You must give 3 command line arguments: graphic file, text file, font file");
+  puts("You must give 3 command line arguments: graphic file, text file, font file");
  }
  else
  {
-  show_message("Creating a font file.Please wait...");
+  puts("Creating a font file. Please wait...");
   work(argv[1],argv[2],argv[3]);
-  show_message("Work finish");
+  puts("Work finish");
  }
  return 0;
 }
@@ -35,15 +34,10 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.2.1");
+ puts("Version 2.2.2");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2022 years");
  puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
-}
-
-void show_message(const char *message)
-{
  putchar('\n');
- puts(message);
 }
 
 unsigned long int get_file_size(FILE *file)
@@ -61,7 +55,7 @@ FILE *open_input_file(const char *name)
  target=fopen(name,"rb");
  if (target==NULL)
  {
-  show_message("Can't open input file");
+  puts("Can't open input file");
   exit(1);
  }
  return target;
@@ -73,7 +67,7 @@ FILE *create_output_file(const char *name)
  target=fopen(name,"wb");
  if (target==NULL)
  {
-  show_message("Can't create ouput file");
+  puts("Can't create ouput file");
   exit(2);
  }
  return target;
