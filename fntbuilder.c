@@ -1,7 +1,4 @@
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "fntbuilder.h"
 #include "format.h"
 
 void show_intro();
@@ -34,8 +31,8 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.2.2");
- puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2022 years");
+ puts("Version 2.2.3");
+ puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2024 years");
  puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
