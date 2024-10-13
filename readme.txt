@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.3.1
+                              Version 2.2.4
 
 System requirements
 
@@ -10,14 +10,14 @@ System requirements
 
 Description and usage
 
-This program lets you create a font for MUGEN game engine.
-This program takes 3 command-line arguments: a graphic file, a text file, and a font file.
+This program lets you create a font for the MUGEN game engine.
+This program takes 3 command-line arguments: a graphics file, a text file, and the font file.
 
 Exit codes
 
-0 - Operation successfully completed.
-1 - Can't open input file.
-2 - Can't create output file.
+0 - Operation was successfully completed.
+1 - Can't open the input file.
+2 - Can't create the output file.
 
 License
 
@@ -27,8 +27,8 @@ Source code
 
 The code was compiled under Open Watcom.
 But you can compile it under any modern C compiler.
-Source code can be compiled for a wide range of operating systems, but you need to create a makefile or build script by yourself.
-I provide only two things: the binary file for Windows and makefile for Linux.
+The source code can be compiled for a wide range of operating systems, but you need to create a makefile or a build script by yourself.
+I provide only two things: the binary file for Windows and the makefile for Linux.
 
 Install and uninstall under Linux
 
@@ -42,18 +42,19 @@ Run as root to uninstall: make uninstall
 
 Version history
 
-1.0 — Initial version.
-1.1 — Small changes in source code. Program recompiled under Open Watcom.
-1.2 — 1.9 — Small changes in source code.
-2.0 — Source code improved. Linux support has been added.
-2.0.1 — 2.0.2 — Small changes in source code.
-2.0.2.0.1 – Documentation updated.
-2.0.3 — 2.0.5 — Small changes.
-2.0.5.1 — Makefile updated.
-2.0.6 — Small changes.
-2.0.7 — 2.0.8 — Small bug fixed.
-2.0.9 — 2.1 — Small changes.
-2.1.0.1 — 2.1.0.2 — Makefile updated.
-2.2 — 2.2.2 — Small changes.
-2.2.3 — Visual C++ support improved.
-2.2.3.1 – Documentation updated.
+1.0: Initial version.
+1.1: Small changes in the source code. The program was recompiled under Open Watcom.
+1.2 — 1.9: Small changes in the source code.
+2.0: The source code is improved. Linux support has been added.
+2.0.1 — 2.0.2: Small changes in source code.
+2.0.2.0.1: Documentation updated.
+2.0.3 — 2.0.5: Small changes.
+2.0.5.1: The makefile updated.
+2.0.6: Small changes.
+2.0.7 — 2.0.8: The small bug is fixed.
+2.0.9 — 2.1: Small changes.
+2.1.0.1 — 2.1.0.2: The makefile updated.
+2.2 — 2.2.2: Small changes.
+2.2.3: Visual C++ support improved.
+2.2.3.1: Documentation updated.
+2.2.4: Small changes.

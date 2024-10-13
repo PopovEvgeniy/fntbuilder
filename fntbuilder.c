@@ -16,13 +16,13 @@ int main(int argc, char *argv[])
  show_intro();
  if (argc<4)
  {
-  puts("You must give 3 command line arguments: graphic file, text file, font file");
+  puts("You must give 3 command line arguments: a graphics file, a text file, the font file");
  }
  else
  {
   puts("Creating a font file. Please wait...");
   work(argv[1],argv[2],argv[3]);
-  puts("Work finish");
+  puts("The work has been finished");
  }
  return 0;
 }
@@ -31,9 +31,9 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.2.3");
+ puts("Version 2.2.4");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2024 years");
- puts("This program distributed under GNU GENERAL PUBLIC LICENSE");
+ puts("This program is distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
 
@@ -52,7 +52,7 @@ FILE *open_input_file(const char *name)
  target=fopen(name,"rb");
  if (target==NULL)
  {
-  puts("Can't open input file");
+  puts("Can't open the input file");
   exit(1);
  }
  return target;
@@ -64,7 +64,7 @@ FILE *create_output_file(const char *name)
  target=fopen(name,"wb");
  if (target==NULL)
  {
-  puts("Can't create ouput file");
+  puts("Can't create the ouput file");
   exit(2);
  }
  return target;
@@ -110,7 +110,7 @@ FNT prepare_head()
  FNT fnt_head;
  memset(&fnt_head,0,sizeof(FNT));
  strncpy(fnt_head.signature,"ElecbyteFnt",12);
- strncpy(fnt_head.comment,"This font is created by FONT BULDER    ",40);
+ strncpy(fnt_head.comment,"This font was created by FONT BULDER   ",40);
  fnt_head.pcx_offset=(unsigned long int)sizeof(FNT);
  return fnt_head;
 }
