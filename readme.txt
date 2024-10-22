@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.4
+                              Version 2.2.4.1
 
 System requirements
 
@@ -15,9 +15,9 @@ This program takes 3 command-line arguments: a graphics file, a text file, and t
 
 Exit codes
 
-0 - Operation was successfully completed.
-1 - Can't open the input file.
-2 - Can't create the output file.
+0: Operation was successfully completed.
+1: Can't open the input file.
+2: Can't create the output file.
 
 License
 
@@ -43,18 +43,19 @@ Run as root to uninstall: make uninstall
 Version history
 
 1.0: Initial version.
-1.1: Small changes in the source code. The program was recompiled under Open Watcom.
-1.2 — 1.9: Small changes in the source code.
+1.1: The small changes in the source code. The program was recompiled under Open Watcom.
+1.2-1.9: The small changes in the source code.
 2.0: The source code is improved. Linux support has been added.
-2.0.1 — 2.0.2: Small changes in source code.
+2.0.1-2.0.2: The small changes in source code.
 2.0.2.0.1: Documentation updated.
-2.0.3 — 2.0.5: Small changes.
+2.0.3-2.0.5: Small changes.
 2.0.5.1: The makefile updated.
-2.0.6: Small changes.
-2.0.7 — 2.0.8: The small bug is fixed.
-2.0.9 — 2.1: Small changes.
-2.1.0.1 — 2.1.0.2: The makefile updated.
-2.2 — 2.2.2: Small changes.
+2.0.6: The small changes.
+2.0.7-2.0.8: The small bug is fixed.
+2.0.9-2.1: The small changes.
+2.1.0.1-2.1.0.2: The makefile updated.
+2.2-2.2.2: The small changes.
 2.2.3: Visual C++ support improved.
 2.2.3.1: Documentation updated.
-2.2.4: Small changes.
+2.2.4: The small changes.
+2.2.4.1: Documentation updated.
