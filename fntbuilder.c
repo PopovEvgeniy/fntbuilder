@@ -31,7 +31,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.2.4");
+ puts("Version 2.2.5");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2024 years");
  puts("This program is distributed under GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
