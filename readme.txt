@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.5
+                              Version 2.2.5.1
 
 System requirements
 
@@ -60,3 +60,4 @@ Version history
 2.2.4: The small changes.
 2.2.4.1-2.2.4.2: The documentation has been updated.
 2.2.5: The source code was recompiled under Tiny C Compiler.
+2.2.5.1: The makefile has been updated.
