@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.6
+                              Version 2.2.6.1
 
 System requirements
 
@@ -21,7 +21,7 @@ Exit codes
 
 License
 
-This program is distributed under GNU GENERAL PUBLIC LICENSE
+This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
 Source code
 
@@ -62,3 +62,4 @@ Version history
 2.2.5: The source code was recompiled under Tiny C Compiler.
 2.2.5.1: The makefile has been updated.
 2.2.6: The small changes.
+2.2.6.1: The documentation has been updated.
