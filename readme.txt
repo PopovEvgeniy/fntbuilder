@@ -2,11 +2,11 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.6.1
+                              Version 2.2.7
 
 System requirements
 
-32 kilobytes of free space on storage media.
+64 kilobytes of free space on storage media.
 
 Description and usage
 
@@ -15,7 +15,7 @@ This program takes 3 command-line arguments: a graphic file, a text file, and th
 
 Exit codes
 
-0: Operation was successfully completed.
+0: The operation was successfully completed.
 1: Can't open the input file.
 2: Can't create the output file.
 
@@ -25,7 +25,7 @@ This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
 Source code
 
-The code was compiled under Tiny C Compiler.
+The code was compiled under Open Watcom.
 But you can compile it with any modern C compiler.
 The source code can be compiled for a wide range of operating systems, but you need to create a makefile or a build script by yourself.
 I provide only two things: the binary file for Windows and the makefile for Linux.
@@ -63,3 +63,4 @@ Version history
 2.2.5.1: The makefile has been updated.
 2.2.6: The small changes.
 2.2.6.1: The documentation has been updated.
+2.2.7: The small changes.
