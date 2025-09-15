@@ -2,35 +2,31 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.2.7
+                              Version 2.2.7.1
 
-System requirements
-
-64 kilobytes of free space on storage media.
-
-Description and usage
+The program description.
 
 This program lets you create a font for the MUGEN game engine.
 This program takes 3 command-line arguments: a graphic file, a text file, and the font file.
 
-Exit codes
+Exit codes.
 
 0: The operation was successfully completed.
 1: Can't open the input file.
 2: Can't create the output file.
 
-License
+License.
 
 This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
-Source code
+The source code.
 
 The code was compiled under Open Watcom.
 But you can compile it with any modern C compiler.
 The source code can be compiled for a wide range of operating systems, but you need to create a makefile or a build script by yourself.
 I provide only two things: the binary file for Windows and the makefile for Linux.
 
-Install and uninstall under Linux
+Install and uninstall under Linux.
 
 Follow these steps:
 
@@ -40,9 +36,9 @@ Follow these steps:
 Run as root to install: make install
 Run as root to uninstall: make uninstall
 
-Version history
+Version history.
 
-1.0: Initial version.
+1.0: The initial version.
 1.1: The small changes in the source code. The program was recompiled under Open Watcom.
 1.2-1.9: The small changes in the source code.
 2.0: The source code has improved. Linux support has been added.
@@ -64,3 +60,4 @@ Version history
 2.2.6: The small changes.
 2.2.6.1: The documentation has been updated.
 2.2.7: The small changes.
+2.2.7.1: The documentation has been updated.
