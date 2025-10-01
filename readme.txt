@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.3.2
+                              Version 2.3.4
 
 The program description.
 
@@ -64,3 +64,5 @@ Version history.
 2.2.7.1: The documentation has been updated.
 2.2.8: The compilation process has improved.
 2.2.9-2.3.2: The small changes.
+2.3.3: The code portability has improved.
+2.3.4: The small bug has been fixed.
