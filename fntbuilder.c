@@ -31,7 +31,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.3.4");
+ puts("Version 2.3.6");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2025 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -74,7 +74,6 @@ void data_dump(FILE *input,FILE *output,const size_t length)
 {
  char *buffer;
  size_t current,elapsed,block;
- current=0;
  elapsed=0;
  block=4096;
  buffer=(char*)calloc(block,sizeof(char));
@@ -83,7 +82,7 @@ void data_dump(FILE *input,FILE *output,const size_t length)
   puts("Can't allocate memory");
   exit(3);
  }
- while (current<length)
+ for (current=0;current<length;current+=block)
  {
   elapsed=length-current;
   if (elapsed<block)
@@ -92,7 +91,6 @@ void data_dump(FILE *input,FILE *output,const size_t length)
   }
   fread(buffer,sizeof(char),block,input);
   fwrite(buffer,sizeof(char),block,output);
-  current+=block;
  }
  free(buffer);
 }
