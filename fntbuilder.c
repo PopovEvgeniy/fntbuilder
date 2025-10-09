@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
  show_intro();
  if (argc<4)
  {
-  puts("You must give 3 command line arguments: a graphic file, a text file, the font file");
+  puts("You must give 3 command-line arguments: a graphic file, a text file, the font file");
  }
  else
  {
@@ -31,7 +31,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.3.6");
+ puts("Version 2.3.8");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2025 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -121,6 +121,7 @@ FNT prepare_head()
 {
  FNT head;
  strncpy(head.signature,"ElecbyteFnt",12);
+ head.signature[11]=0;
  head.version[0]=0;
  head.version[1]=1;
  head.version[2]=0;
