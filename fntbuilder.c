@@ -2,7 +2,7 @@
 #include "format.h"
 
 void show_intro();
-unsigned long int get_file_size(FILE *file);
+unsigned long int get_file_size(FILE *target);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 void data_dump(FILE *input,FILE *output,const size_t length);
@@ -31,18 +31,18 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.3.9");
- puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2025 years");
+ puts("Version 2.4");
+ puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2026 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
 }
 
-unsigned long int get_file_size(FILE *file)
+unsigned long int get_file_size(FILE *target)
 {
  unsigned long int length;
- fseek(file,0,SEEK_END);
- length=ftell(file);
- rewind(file);
+ fseek(target,0,SEEK_END);
+ length=ftell(target);
+ rewind(target);
  return length;
 }
 
