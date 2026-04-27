@@ -2,7 +2,7 @@
 
                  Mugen font compiler by Popov Evgeniy Alekseyevich
 
-                              Version 2.4.2
+                              Version 2.4.3
 
 The program description.
 
@@ -14,7 +14,9 @@ Exit codes.
 0: The operation was successfully completed.
 1: Can't open the input file.
 2: Can't create the output file.
-3: Can't allocate memory.
+3: Can't read data!
+4: Can't write data!
+5: Can't allocate memory.
 
 License.
 
@@ -69,3 +71,4 @@ Version history.
 2.3.5-2.3.7: The small changes.
 2.3.8: The small bug has been fixed.
 2.3.9-2.4.2: The small changes.
+2.4.3: The file processing has improved.
