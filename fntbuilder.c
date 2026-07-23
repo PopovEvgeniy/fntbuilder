@@ -33,7 +33,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.4.3");
+ puts("Version 2.4.4");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2026 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -50,7 +50,12 @@ unsigned long int get_file_size(FILE *target)
 
 FILE *open_input_file(const char *name)
 {
- FILE *target;
+ FILE *target=NULL;
+ if (name==NULL)
+ {
+  puts("Can't open the input file");
+  exit(1);
+ }
  target=fopen(name,"rb");
  if (target==NULL)
  {
@@ -62,7 +67,12 @@ FILE *open_input_file(const char *name)
 
 FILE *create_output_file(const char *name)
 {
- FILE *target;
+ FILE *target=NULL;
+ if (name==NULL)
+ {
+  puts("Can't create the ouput file");
+  exit(2);
+ }
  target=fopen(name,"wb");
  if (target==NULL)
  {
@@ -160,9 +170,9 @@ FNT prepare_head()
 
 void work(const char *pcx_name,const char *text_file,const char *fnt_file)
 {
- FILE *pcx;
- FILE *text;
- FILE *font;
+ FILE *pcx=NULL;
+ FILE *text=NULL;
+ FILE *font=NULL;
  FNT head;
  head=prepare_head();
  pcx=open_input_file(pcx_name);
