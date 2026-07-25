@@ -33,7 +33,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.4.5");
+ puts("Version 2.4.6");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2026 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -41,7 +41,7 @@ void show_intro()
 
 unsigned long int get_file_size(FILE *target)
 {
- unsigned long int length;
+ unsigned long int length=0;
  fseek(target,0,SEEK_END);
  length=ftell(target);
  rewind(target);
@@ -106,10 +106,10 @@ void write_data(const void *data,const size_t length,FILE *output)
 
 void data_dump(FILE *input,FILE *output,const size_t length)
 {
- char *buffer;
- size_t current,elapsed,block;
- elapsed=0;
- block=4096;
+ char *buffer=NULL;
+ size_t current=0;
+ size_t elapsed=0;
+ size_t block=4096;
  buffer=(char*)calloc(block,sizeof(char));
  if (buffer==NULL)
  {
@@ -131,7 +131,7 @@ void data_dump(FILE *input,FILE *output,const size_t length)
 
 void fast_data_dump(FILE *input,FILE *output,const size_t length)
 {
- char *buffer;
+ char *buffer=NULL;
  buffer=(char*)malloc(length);
  if (buffer==NULL)
  {
