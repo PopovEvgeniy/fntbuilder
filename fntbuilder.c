@@ -2,9 +2,9 @@
 #include "format.h"
 
 void show_intro();
-unsigned long int get_file_size(FILE *target);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
+unsigned long int get_file_size(FILE *target);
 void read_data(void *data,const size_t length,FILE *input);
 void write_data(const void *data,const size_t length,FILE *output);
 void data_dump(FILE *input,FILE *output,const size_t length);
@@ -33,19 +33,10 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.4.6");
+ puts("Version 2.4.7");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2026 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
-}
-
-unsigned long int get_file_size(FILE *target)
-{
- unsigned long int length=0;
- fseek(target,0,SEEK_END);
- length=ftell(target);
- rewind(target);
- return length;
 }
 
 FILE *open_input_file(const char *name)
@@ -82,24 +73,37 @@ FILE *create_output_file(const char *name)
  return target;
 }
 
+unsigned long int get_file_size(FILE *target)
+{
+ unsigned long int length=0;
+ if (fseek(target,0,SEEK_END)!=0)
+ {
+  puts("Can't get the file size!");
+  exit(3);
+ }
+ length=ftell(target);
+ rewind(target);
+ return length;
+}
+
 void read_data(void *data,const size_t length,FILE *input)
 {
- fread(data,length,sizeof(char),input);
+ fread(data,sizeof(char),length,input);
  if (ferror(input)!=0)
  {
   puts("Can't read data!");
-  exit(3);
+  exit(4);
  }
 
 }
 
 void write_data(const void *data,const size_t length,FILE *output)
 {
- fwrite(data,length,sizeof(char),output);
+ fwrite(data,sizeof(char),length,output);
  if (ferror(output)!=0)
  {
   puts("Can't write data!");
-  exit(4);
+  exit(5);
  }
 
 }
@@ -114,7 +118,7 @@ void data_dump(FILE *input,FILE *output,const size_t length)
  if (buffer==NULL)
  {
   puts("Can't allocate memory");
-  exit(5);
+  exit(6);
  }
  for (current=0;current<length;current+=block)
  {
