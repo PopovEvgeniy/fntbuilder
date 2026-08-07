@@ -33,7 +33,7 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.4.7");
+ puts("Version 2.4.8");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2026 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
@@ -168,7 +168,8 @@ FNT prepare_head()
  head.pcx_size=0;
  head.text_offset=0;
  head.text_size=0;
- strncpy(head.comment,"This font was created by FNT BUILDER.   ",40);
+ strncpy(head.comment,"This font was created by FNT BUILDER   ",39);
+ head.comment[39]=0;
  return head;
 }
 
