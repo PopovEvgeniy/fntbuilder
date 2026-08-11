@@ -1,7 +1,9 @@
 #include "fntbuilder.h"
 #include "format.h"
+#include "exitcode.h"
 
 void show_intro();
+void show_error(const char *message);
 FILE *open_input_file(const char *name);
 FILE *create_output_file(const char *name);
 unsigned long int get_file_size(FILE *target);
@@ -19,6 +21,7 @@ int main(int argc, char *argv[])
  if (argc<4)
  {
   puts("You must give 3 command-line arguments: a graphic file, a text file, and the font file");
+  exit(COMMAND_LINE_ARGUMENTS_ERROR);
  }
  else
  {
@@ -33,10 +36,17 @@ void show_intro()
 {
  putchar('\n');
  puts("FNT BUILDER");
- puts("Version 2.4.8");
+ puts("Version 2.4.9");
  puts("Mugen font compiler by Popov Evgeniy Alekseyevich, 2008-2026 years");
  puts("This program is distributed under the GNU GENERAL PUBLIC LICENSE");
  putchar('\n');
+}
+
+void show_error(const char *message)
+{
+ fputc('\n',stderr);
+ fputs(message,stderr);
+ fputc('\n',stderr);
 }
 
 FILE *open_input_file(const char *name)
@@ -44,14 +54,14 @@ FILE *open_input_file(const char *name)
  FILE *target=NULL;
  if (name==NULL)
  {
-  puts("Can't open the input file");
-  exit(1);
+  show_error("Can't open the input file");
+  exit(OPEN_FILE_ERROR);
  }
  target=fopen(name,"rb");
  if (target==NULL)
  {
-  puts("Can't open the input file");
-  exit(1);
+  show_error("Can't open the input file");
+  exit(OPEN_FILE_ERROR);
  }
  return target;
 }
@@ -61,14 +71,14 @@ FILE *create_output_file(const char *name)
  FILE *target=NULL;
  if (name==NULL)
  {
-  puts("Can't create the ouput file");
-  exit(2);
+  show_error("Can't create the ouput file");
+  exit(CREATE_FILE_ERROR);
  }
  target=fopen(name,"wb");
  if (target==NULL)
  {
-  puts("Can't create the ouput file");
-  exit(2);
+  show_error("Can't create the ouput file");
+  exit(CREATE_FILE_ERROR);
  }
  return target;
 }
@@ -78,8 +88,8 @@ unsigned long int get_file_size(FILE *target)
  unsigned long int length=0;
  if (fseek(target,0,SEEK_END)!=0)
  {
-  puts("Can't get the file size!");
-  exit(3);
+  show_error("Can't get the file size!");
+  exit(GET_FILE_SIZE_ERROR);
  }
  length=ftell(target);
  rewind(target);
@@ -88,22 +98,20 @@ unsigned long int get_file_size(FILE *target)
 
 void read_data(void *data,const size_t length,FILE *input)
 {
- fread(data,sizeof(char),length,input);
- if (ferror(input)!=0)
+ if (fread(data,sizeof(char),length,input)<length)
  {
-  puts("Can't read data!");
-  exit(4);
+  show_error("Can't read data!");
+  exit(READ_DATA_ERROR);
  }
 
 }
 
 void write_data(const void *data,const size_t length,FILE *output)
 {
- fwrite(data,sizeof(char),length,output);
- if (ferror(output)!=0)
+ if (fwrite(data,sizeof(char),length,output)<length)
  {
-  puts("Can't write data!");
-  exit(5);
+  show_error("Can't write data!");
+  exit(WRITE_DATA_ERROR);
  }
 
 }
@@ -158,6 +166,7 @@ void write_head(const FNT *head,FILE *output)
 FNT prepare_head()
 {
  FNT head;
+ memset(&head,0,sizeof(FNT));
  strncpy(head.signature,"ElecbyteFnt",12);
  head.signature[11]=0;
  head.version[0]=0;
